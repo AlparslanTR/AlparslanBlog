@@ -1,0 +1,37 @@
+﻿@using EntityLayer.Concrete
+@model List<Mesajlar2>
+<div class="page-header">
+    <div class="col-12 grid-margin">
+        <div class="card">
+                  <div class="card-body">
+              <h3 class="page-title">
+                <span class="page-title-icon bg-gradient-primary text-white mr-2">
+                  <i class="mdi mdi-message-reply-text menu-icon"></i>
+                </span> Gönderilen Mesajlar
+              </h3>
+                <table class="table table-hover">                 
+                      <thead>
+                        <tr>
+                          <th>ID</th>
+                          <th>Kime</th>
+                          <th>Konu</th>
+                          <th>Tarih</th>
+                          <th>Mesaja Git</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                          @foreach(var y in Model){
+                        <tr>
+                          <td>@y.MesajID</td>
+                          <td>@y.yazaralan.YazarAd</td>
+                          <td>@y.Konu</td>
+                          <td>@y.MesajTarih.ToShortDateString()</td>
+                          <td><a href="~/Mesaj/Mesajım/@y.MesajID" class="btn btn-gradient-primary">Mesaja Git</a></td>
+                        </tr>}
+                      </tbody>
+                    </table>
+                    <br />
+                  </div>
+                  </div>
+                  </div>
+                  </div>

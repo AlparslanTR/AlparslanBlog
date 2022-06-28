@@ -1,0 +1,29 @@
+﻿@using EntityLayer.Concrete
+@model List<Blog>
+<div class="table-responsive">
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th> Resim </th>
+                            <th> Blog Adı </th>
+                            <th> Durumu </th>
+                            <th> Tarih </th>
+                            <th> Kategori </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            @foreach(var x in Model){
+                          <tr>
+                            <td>
+                              <img src="@x.BlogUfakResim" class="mr-2" alt="image"> 
+                            </td>
+                            <td> @x.BlogBasligi </td>
+                            <td>
+                              <label class="badge badge-gradient-success">@x.BlogDurum</label>
+                            </td>
+                            <td>@(((DateTime)x.BlogOlusturmaTarihi).ToString("dd-MMMM-yyyy"))</td>
+                            <td>@x.kategori.KategoriAd</td>
+                          </tr>}
+                        </tbody>
+                      </table>
+                    </div>

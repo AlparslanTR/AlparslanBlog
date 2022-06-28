@@ -1,0 +1,58 @@
+﻿@using EntityLayer.Concrete
+@model List<Blog>
+@{
+    ViewData["Title"] = "YazarBlogListesi";
+    Layout = "~/Views/Shared/_AdminPaneli.cshtml";
+}
+ <div class="page-header">
+    <div class="col-12 grid-margin">
+        <div class="card">
+                  <div class="card-body">
+              <h3 class="page-title">
+                <span class="page-title-icon bg-gradient-primary text-white mr-2">
+                  <i class="mdi mdi mdi-apps menu-icon"></i>
+                </span> Bloglarım
+              </h3>
+              <br />
+<table class="table table-bordered">
+     <thead>
+    <tr>
+        <th>ID</th>
+        <th>Blog Adı</th>
+        <th>Blog Oluşturma Tarihi</th>
+        <th>Kategori</th>
+        <th>Durum</th>
+        <th>Sil</th>
+        <th>Düzenle</th>
+    </tr>
+     </thead>
+     <tbody>
+    @foreach(var x in Model)
+    {
+        <tr>
+            <td>@x.BlogID</td>
+            <td>@x.BlogBasligi</td>
+            <td>@x.BlogOlusturmaTarihi</td>
+            <td>@x.kategori.KategoriAd</td>
+            <td>@x.BlogDurum</td>
+            <td><a href="~/Blog/Sil/@x.BlogID" class="btn btn-gradient-danger" OnClick="Sil()">Sil</a></td>
+            <td><a href="~/Blog/Düzenle/@x.BlogID" class="btn btn-gradient-primary">Düzelt</a></td>
+        </tr>
+    }
+    </tbody>
+</table>
+<br />
+<a href="~/Blog/BlogEkle" class="btn btn-gradient-info">Blog Ekle</a>
+</div>
+                  </div>
+                  </div>
+                  </div>
+<script src="js/bootstrap.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script src="~/lib/jquery/dist/jquery.js"></script>
+	<link rel="stylesheet" href="sweetalert2.min.css">
+<script>
+function Sil() {
+   swal("İşlem Başarılı","Blog Silindi","success");
+}
+</script>

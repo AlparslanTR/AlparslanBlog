@@ -1,0 +1,29 @@
+﻿						
+<script src=https://code.jquery.com/jquery-3.6.0.min.js></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<div class="tech-btm">
+							<img src="~/BlogTema/images/aboneol.png" class="img-fluid" alt="">
+						</div>
+<div class="tech-btm">
+							<h4>Mail Bültenine Abone Ol</h4>
+							<p>Paylaşılan Son Bloglardan Haberdar Olun</p>
+							<form method="post">
+								<input type="email" id="txtmail" placeholder="Mail" required="" name="Mail">
+								<input type="submit" value="Abone Ol" id="Gonder">
+							</form>					   
+						</div>                     
+						 <script type="text/javascript">
+									$("#Gonder").click(function(){
+									let degerler={
+										Mail:$("#txtmail").val()};
+									$.ajax({
+										type:"post",
+										url:"/Aboneler/AboneOl/",
+										data:degerler,
+										success: function (func){
+											let sonuc=jQuery.parseJSON(func);
+										}
+									});
+									});
+									</script>
+					     

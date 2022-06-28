@@ -1,0 +1,15 @@
+﻿@model EntityLayer.Concrete.Mesajlar2
+@{
+    ViewData["Title"] = "Mesajım";
+    Layout = "~/Views/Shared/_AdminPaneli.cshtml";
+}
+    <label asp-for="Konu">Konu</label>
+    <input asp-for="Konu" class="form-control form-control-lg" type="text" />
+    <br />
+    <label asp-for="Mesajın">Mesaj İçeriği</label>
+     <textarea asp-for="Mesajın" class="form-control"rows="10"></textarea>
+    <br />
+    <label asp-for="MesajTarih">Tarihi</label>
+    <input asp-for="MesajTarih" class="form-control form-control-lg" type="date" />
+    <br />
+

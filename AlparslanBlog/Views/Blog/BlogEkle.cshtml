@@ -1,0 +1,78 @@
+﻿@model EntityLayer.Concrete.Blog
+@{
+    ViewData["Title"] = "BlogEkle";
+    Layout = "~/Views/Shared/_AdminPaneli.cshtml";
+}
+
+ <div class="page-header">
+              <h3 class="page-title">
+                <span class="page-title-icon bg-gradient-primary text-white mr-2">
+                  <i class="mdi mdi mdi-border-color menu-icon"></i>
+                </span> Blog Ekle
+              </h3>
+              <nav aria-label="breadcrumb">
+                <ul class="breadcrumb">
+                </ul>
+              </nav>
+            </div>
+<br />
+@using(Html.BeginForm("BlogEkle","Blog",FormMethod.Post))
+{
+
+    <label asp-for="BlogBasligi">Blog Başlığı</label>
+    <input asp-for="BlogBasligi" class="form-control form-control-lg" type="text" />
+    @Html.ValidationMessageFor(x=>x.BlogBasligi)
+    <br />
+    <label asp-for="BlogOzet">Bloğunuzu 1 Cümle İle Tanımlayınız</label>
+    <input asp-for="BlogOzet" class="form-control form-control-lg" type="text" />
+    @Html.ValidationMessageFor(x=>x.BlogOzet)
+    <br />
+     <label asp-for="KategoriID">Kategori Seçiniz</label>
+     <br />
+     <select class="form-control form-control-lg" asp-for="KategoriID" asp-items="ViewBag.ktg">
+         <option>Kategori Seçiniz</option>
+     </select>
+    <br />
+   <label asp-for="BlogUfakResim">Blog İçin Ufak Resim URL Adresi Giriniz</label>
+    <input asp-for="BlogUfakResim" class="form-control form-control-lg" type="url" />
+    @Html.ValidationMessageFor(x=>x.BlogUfakResim)
+    <br />
+    <label asp-for="BlogResim">Blog İçin Büyük Resim URL Adresi Giriniz</label>
+    <input asp-for="BlogResim" class="form-control form-control-lg" type="url" />
+    @Html.ValidationMessageFor(x=>x.BlogResim)
+    <br />
+    <label asp-for="BlogIcerik">Blog İçin Açıklamanızı Yazın</label>
+    <textarea asp-for="BlogIcerik" id="summernote" class="form-control form-control-lg"></textarea>
+    @Html.ValidationMessageFor(x=>x.BlogIcerik)
+    <br />
+    <button onclick="Ekle()" class="btn btn-gradient-info">Ekle</button>
+}
+<script src="js/bootstrap.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script src="~/lib/jquery/dist/jquery.js"></script>
+	<link rel="stylesheet" href="sweetalert2.min.css">
+<script>
+function Ekle() {
+   swal("İşlem Başarılı","Blog Eklendi","success");
+}
+</script>
+
+     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+
+    <script>
+      $('#summernote').summernote({
+        tabsize: 2,
+        height: 400,
+        toolbar: [
+          ['style', ['style']],
+          ['font', ['bold', 'underline', 'clear']],
+          ['color', ['color']],
+          ['para', ['ul', 'ol', 'paragraph']],
+          ['table', ['table']],
+          ['insert', ['link', 'picture', 'video']],
+          ['view', ['fullscreen', 'codeview', 'help']]
+        ]
+      });
+    </script>

@@ -1,0 +1,36 @@
+﻿@using EntityLayer.Concrete
+@model List<Bildirimler>
+@{
+    ViewData["Title"] = "Bildirimleriniz";
+    Layout = "~/Views/Shared/_AdminPaneli.cshtml";
+}
+<div class="col-12 grid-margin">
+                <div class="card">
+                  <div class="card-body">
+                    <span class="page-title-icon bg-gradient-primary text-white mr-2">
+                  <i class="mdi mdi-notification-clear-all"></i>
+                </span> Tüm Bildirimleriniz
+                <table class="table table-hover">                 
+                      <thead>
+                        <tr>
+                          <th>Konu</th>
+                          <th>Detaylar</th>
+                          <th>Tarih</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                          @foreach(var x in Model){
+                        <tr>
+                          <td>@x.BildirimTuru</td>
+                          <td>@x.BildirimDetaylari</td>
+                          <td>@x.BildirimTarihi.ToShortDateString()</td>
+                          <td><div class="@x.BildirimRengi">
+                      <i class="@x.BildirimTuruSembol"></i>
+                    </div></td>
+                        </tr>}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+

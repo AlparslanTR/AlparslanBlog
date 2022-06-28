@@ -1,0 +1,14 @@
+﻿<div class="comment-top">
+    <h4>Yorum Yaz</h4>
+    <div class="comment-bottom">
+        <form method="post" asp-action="PartialYorumEkle" asp-controller="Yorumlar">
+            <input class="form-control" type="text" name="YorumAd" placeholder="Ad" required="">
+
+            <input class="form-control" type="text" name="YorumBasligi" placeholder="Konu" required="">
+
+            <textarea class="form-control" name="Yorum" placeholder="Mesaj" required=""></textarea>
+            <button type="submit" class="btn btn-primary submit">Gönder</button>
+        </form>
+    </div>
+</div>
+

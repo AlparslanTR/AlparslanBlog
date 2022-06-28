@@ -1,0 +1,33 @@
+﻿@using EntityLayer.Concrete
+@model List<Projeler>
+<h3>Son Eklenen Projelerimize Göz Atın</h3>
+<br />
+<div class="left-blog-info-w3layouts-agileits text-left">
+					<div class="row">
+						@foreach(var x in Model){
+						<div class="col-lg-4 card">
+								<img src="@x.ProjeKücükResim" style="height:200px; width:200px;" alt="">
+							<div class="card-body">
+								<ul class="blog-icons my-4">
+									<li>
+										<a href="#">
+											<i class="far fa-calendar-alt"></i>@DateTime.Now.ToLongDateString()</a>
+									</li>
+									<li class="mx-2">
+										<a href="#">
+											<i class="far fa-comment"></i>0</a>
+									</li>
+									<li>
+										<a href="#">
+											<i class="fas fa-list"></i>Yazılım</a>
+									</li>
+								</ul>
+								<h5 class="card-title">
+									@x.ProjeAdi
+								</h5>
+								<p class="card-text mb-3">@x.ProjeOzet</p>
+								<a href="/Projeler/Detaylar/@x.ProjeID" class="btn btn-primary read-m">Devamını Oku</a>
+							</div>
+						</div>}
+					</div>
+					</div>

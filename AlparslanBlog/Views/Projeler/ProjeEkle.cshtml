@@ -1,0 +1,73 @@
+﻿@model EntityLayer.Concrete.Projeler
+@{
+    ViewData["Title"] = "ProjeEkle";
+    Layout = "~/Views/Shared/_AdminPaneli.cshtml";
+}
+
+<div class="page-header">
+              <h3 class="page-title">
+                <span class="page-title-icon bg-gradient-primary text-white mr-2">
+                  <i class="mdi mdi mdi-border-color menu-icon"></i>
+                </span> Proje Ekle
+              </h3>
+              <nav aria-label="breadcrumb">
+                <ul class="breadcrumb">
+                </ul>
+              </nav>
+            </div>
+<br />
+@using(Html.BeginForm("ProjeEkle","Projeler",FormMethod.Post))
+{
+
+    <label asp-for="ProjeAdi">Proje Adı</label>
+    <input asp-for="ProjeAdi" class="form-control form-control-lg" type="text" />
+    @Html.ValidationMessageFor(x=>x.ProjeAdi)
+    <br />
+    <label asp-for="ProjeOzet">Projenizi 1 Cümle İle Tanımlayınız</label>
+    <input asp-for="ProjeOzet" class="form-control form-control-lg" type="text" />
+    @Html.ValidationMessageFor(x=>x.ProjeOzet)
+    <br />
+   <label asp-for="ProjeKücükResim">Projeniz İçin Ufak Resim URL Adresi Giriniz</label>
+    <input asp-for="ProjeKücükResim" class="form-control form-control-lg" type="url" />
+    @Html.ValidationMessageFor(x=>x.ProjeKücükResim)
+    <br />
+    <label asp-for="ProjeBüyükResim">Projeniz İçin Büyük Resim URL Adresi Giriniz</label>
+    <input asp-for="ProjeBüyükResim" class="form-control form-control-lg" type="url" />
+    @Html.ValidationMessageFor(x=>x.ProjeBüyükResim)
+    <br />
+    <label asp-for="ProjeAciklama">Proje İçin Açıklamanızı Yazın</label>
+    <textarea asp-for="ProjeAciklama" id="summernote" class="form-control form-control-lg"></textarea>
+    @Html.ValidationMessageFor(x=>x.ProjeAciklama)
+    <br />
+    <button onclick="Ekle()" class="btn btn-gradient-info">Ekle</button>
+}
+<script src="js/bootstrap.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script src="~/lib/jquery/dist/jquery.js"></script>
+	<link rel="stylesheet" href="sweetalert2.min.css">
+<script>
+function Ekle() {
+   swal("İşlem Başarılı","Proje Eklendi","success");
+}
+</script>
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+
+    <script>
+      $('#summernote').summernote({
+        tabsize: 2,
+        height: 400,
+        toolbar: [
+          ['style', ['style']],
+          ['font', ['bold', 'underline', 'clear']],
+          ['color', ['color']],
+          ['para', ['ul', 'ol', 'paragraph']],
+          ['table', ['table']],
+          ['insert', ['link', 'picture', 'video']],
+          ['view', ['fullscreen', 'codeview', 'help']]
+        ]
+      });
+    </script>

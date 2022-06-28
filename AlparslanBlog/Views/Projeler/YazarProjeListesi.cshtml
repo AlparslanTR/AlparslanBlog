@@ -1,0 +1,58 @@
+﻿@using EntityLayer.Concrete
+@model List<Projeler>
+@{
+    ViewData["Title"] = "YazarProjeListesi";
+    Layout = "~/Views/Shared/_AdminPaneli.cshtml";
+}
+
+<div class="page-header">
+    <div class="col-12 grid-margin">
+        <div class="card">
+                  <div class="card-body">
+              <h3 class="page-title">
+                <span class="page-title-icon bg-gradient-primary text-white mr-2">
+                  <i class="mdi mdi mdi-apps menu-icon"></i>
+                </span> Projelerim
+              </h3>
+              <br />
+<table class="table table-bordered">
+     <thead>
+    <tr>
+        <th>ID</th>
+        <th>Proje Adı</th>
+        <th>Proje Oluşturma Tarihi</th>
+        <th>Yazar</th>
+        <th>Sil</th>
+        <th>Düzenle</th>
+    </tr>
+     </thead>
+     <tbody>
+    @foreach(var x in Model)
+    {
+        <tr>
+            <td>@x.ProjeID</td>
+            <td>@x.ProjeAdi</td>
+            <td>@x.ProjeTarihi</td>
+            <td>@x.yazar.YazarAd</td>
+            <td><a href="~/Projeler/Sil/@x.ProjeID" class="btn btn-gradient-danger" OnClick="Sil()">Sil</a></td>
+            <td><a href="~/Projeler/Düzenle/@x.ProjeID" class="btn btn-gradient-primary">Düzelt</a></td>
+        </tr>
+    }
+    </tbody>
+</table>
+<br />
+<a href="~/Projeler/ProjeEkle" class="btn btn-gradient-info">Proje Ekle</a>
+</div>
+                  </div>
+                  </div>
+                  </div>
+<script src="js/bootstrap.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script src="~/lib/jquery/dist/jquery.js"></script>
+	<link rel="stylesheet" href="sweetalert2.min.css">
+<script>
+function Sil() {
+   swal("İşlem Başarılı","Proje Silindi","success");
+}
+</script>
+
